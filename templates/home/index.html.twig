@@ -9,11 +9,11 @@
 {% block body %}
 <header>
     <nav>
-        <div class="logo">Delivcrous</div>
+        <div class="logo"><a href="{{ path('app_home') }}" style="text-decoration: none; color: inherit;">Delivcrous</a></div>
         <ul class="nav-links">
             <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#etudiant">Etudiant</a></li>
-            <li><a href="#panier">Panier</a></li>
+            <li><a href="{{ path('app_etudiant') }}">Etudiant</a></li>
+            <li><a href="{{ path('app_panier') }}">Panier</a></li>
         </ul>
         <a href="#commander" class="btn-primary">Commander</a>
     </nav>
@@ -74,7 +74,7 @@
         <h2 class="section-title">Nos plats populaires</h2>
         <div class="menu-grid">
             <div class="menu-item">
-                <div class="menu-item-image">🍕</div>
+                <div class="menu-item-image"><img src="https://www.eurialfoodservice-industry.fr/wp-content/uploads/2022/12/PEPPERONI-1024x823.jpg" alt="Pizza"></div>
                 <div class="menu-item-content">
                     <h4>Pizza Margherita</h4>
                     <p>Tomate, mozzarella, basilic</p>
@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div class="menu-item">
-                <div class="menu-item-image">🍔</div>
+                <div class="menu-item-image"><img src="https://www.primaverakitchen.com/wp-content/uploads/2024/08/Hamburger-Recipe-7.jpg" alt="Hamburger"></div>
                 <div class="menu-item-content">
                     <h4>Burger Deluxe</h4>
                     <p>Steak, cheddar, salade, tomate</p>
@@ -90,7 +90,7 @@
                 </div>
             </div>
             <div class="menu-item">
-                <div class="menu-item-image">🍜</div>
+                <div class="menu-item-image"><img src="https://www.healthyfoodcreation.fr/wp-content/uploads/2023/01/ramen-2.jpg" alt="Ramen"></div>
                 <div class="menu-item-content">
                     <h4>Ramen Tonkotsu</h4>
                     <p>Nouilles, porc, œuf, algues</p>
@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="menu-item">
-                <div class="menu-item-image">🥗</div>
+                <div class="menu-item-image"><img src="https://rians.com/wp-content/uploads/2024/04/1000038128.jpg" alt="Salade César"></div>
                 <div class="menu-item-content">
                     <h4>Salade César</h4>
                     <p>Poulet grillé, parmesan, croûtons</p>
@@ -106,7 +106,7 @@
                 </div>
             </div>
             <div class="menu-item">
-                <div class="menu-item-image">🍣</div>
+                <div class="menu-item-image"><img src="https://offloadmedia.feverup.com/lillesecret.com/wp-content/uploads/2023/03/12102658/COUV-ARTICLES-1920x1080-2023-03-09T161912.579-1024x576.jpg" alt="Sushi"></div>
                 <div class="menu-item-content">
                     <h4>Assortiment Sushi</h4>
                     <p>12 pièces variées</p>
@@ -114,7 +114,7 @@
                 </div>
             </div>
             <div class="menu-item">
-                <div class="menu-item-image">🌮</div>
+                <div class="menu-item-image"><img src="https://www.leregalvire.com/img_s1/151758/boutique/tacos_5_viandes.jpg" alt="Tacos XXL"></div>
                 <div class="menu-item-content">
                     <h4>Tacos XXL</h4>
                     <p>Viande, frites, sauce au choix</p>
