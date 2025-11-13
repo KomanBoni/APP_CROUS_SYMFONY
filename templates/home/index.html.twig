@@ -1,20 +1,147 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Delivcrous - Livraison de plats pour étudiants{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/css/delivcrous.css">
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<header>
+    <nav>
+        <div class="logo">Delivcrous</div>
+        <ul class="nav-links">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#etudiant">Etudiant</a></li>
+            <li><a href="#panier">Panier</a></li>
+        </ul>
+        <a href="#commander" class="btn-primary">Commander</a>
+    </nav>
+</header>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<section class="hero" id="accueil">
+    <div class="hero-content">
+        <h1>🍽️ Delivcrous</h1>
+        <p>Vos plats préférés livrés directement sur votre campus !</p>
+        <p style="font-size: 1.1rem; margin-top: -1rem;">Parfait pour les étudiants qui veulent manger bien sans se ruiner</p>
+        <div class="hero-buttons">
+            <a href="#commander" class="btn-secondary">Voir le menu</a>
+            <a href="#avantages" class="btn-secondary">Découvrir</a>
+        </div>
+    </div>
+</section>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/Users/komanboni/mon_projet/my_projet/src/Controller/HomeController.php</code></li>
-        <li>Your template at <code>/Users/komanboni/mon_projet/my_projet/templates/home/index.html.twig</code></li>
-    </ul>
-</div>
+<section class="features" id="avantages">
+    <div class="container">
+        <h2 class="section-title">Pourquoi choisir Delivcrous ?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Livraison rapide</h3>
+                <p>Recevez vos plats en moins de 30 minutes directement sur votre campus</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Prix étudiants</h3>
+                <p>Des tarifs adaptés à votre budget avec des promotions régulières</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🍕</div>
+                <h3>Menu varié</h3>
+                <p>Pizzas, burgers, sushis, salades... Un large choix pour tous les goûts</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Commande facile</h3>
+                <p>Commandez en quelques clics depuis votre smartphone ou ordinateur</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌱</div>
+                <h3>Options végétariennes</h3>
+                <p>Des plats délicieux pour tous les régimes alimentaires</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <h3>Qualité garantie</h3>
+                <p>Des plats préparés avec des ingrédients frais et de qualité</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="menu-preview" id="menu">
+    <div class="container">
+        <h2 class="section-title">Nos plats populaires</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-item-image">🍕</div>
+                <div class="menu-item-content">
+                    <h4>Pizza Margherita</h4>
+                    <p>Tomate, mozzarella, basilic</p>
+                    <div class="price">8,90€</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-image">🍔</div>
+                <div class="menu-item-content">
+                    <h4>Burger Deluxe</h4>
+                    <p>Steak, cheddar, salade, tomate</p>
+                    <div class="price">9,50€</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-image">🍜</div>
+                <div class="menu-item-content">
+                    <h4>Ramen Tonkotsu</h4>
+                    <p>Nouilles, porc, œuf, algues</p>
+                    <div class="price">10,90€</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-image">🥗</div>
+                <div class="menu-item-content">
+                    <h4>Salade César</h4>
+                    <p>Poulet grillé, parmesan, croûtons</p>
+                    <div class="price">7,50€</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-image">🍣</div>
+                <div class="menu-item-content">
+                    <h4>Assortiment Sushi</h4>
+                    <p>12 pièces variées</p>
+                    <div class="price">12,90€</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-image">🌮</div>
+                <div class="menu-item-content">
+                    <h4>Tacos XXL</h4>
+                    <p>Viande, frites, sauce au choix</p>
+                    <div class="price">8,50€</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta" id="commander">
+    <h2>Prêt à commander ?</h2>
+    <p>Rejoignez des milliers d'étudiants qui nous font confiance</p>
+    <a href="#menu" class="btn-primary" style="display: inline-block; margin-top: 1rem;">Commander maintenant</a>
+</section>
+
+<footer id="contact">
+    <div class="footer-content">
+        <div class="footer-links">
+            <a href="#accueil">Accueil</a>
+            <a href="#menu">Menu</a>
+            <a href="#avantages">Avantages</a>
+            <a href="#">CGV</a>
+            <a href="#">Mentions légales</a>
+            <a href="#">Contact</a>
+        </div>
+        <p>&copy; 2024 Delivcrous - Livraison de plats pour étudiants. Tous droits réservés.</p>
+    </div>
+</footer>
 {% endblock %}
