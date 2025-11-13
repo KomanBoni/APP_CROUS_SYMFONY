@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Panier{% endblock %}
+
+{% block body %}
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+    }
+
+    h1 {
+        color: #333;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    table thead th {
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+        padding: 10px;
+    }
+
+    table tbody td {
+        text-align: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    table tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    h3 {
+        color: #198754;
+        text-align: right;
+        margin-top: 20px;
+    }
+
+    .btn-success {
+        background-color: #198754;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s;
+    }
+
+    .btn-success:hover {
+        background-color: #157347;
+    }
+
+    p {
+        text-align: center;
+        font-size: 1.1em;
+        color: #666;
+    }
+</style>
+
+<div class="container mt-5">
+    <h1>🛒 Mon Panier</h1>
+
+    {% if panier is empty %}
+        <p>Votre panier est vide.</p>
+    {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Sous-total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in panier %}
+                    <tr>
+                        <td>{{ item.nom }}</td>
+                        <td>{{ item.prix }} €</td>
+                        <td>{{ item.quantite }}</td>
+                        <td>{{ (item.prix * item.quantite) | number_format(2, ',', ' ') }} €</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3>Total : <strong>{{ total | number_format(2, ',', ' ') }} €</strong></h3>
+
+        <div class="text-end">
+            <a href="#" class="btn-success">Commander</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
