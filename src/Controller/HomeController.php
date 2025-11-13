@@ -15,4 +15,17 @@ final class HomeController extends AbstractController
             'controller_name' => 'Koman',
         ]);
     }
+
+    #[Route('/etudiant', name: 'app_etudiant')]
+    public function etudiant(): Response
+    {
+        return $this->render('etudiant/index.html.twig', [
+            'nom' => 'Doe',
+            'prenom' => 'Jane',
+            'email' => 'jane.doe@example.com',
+            'filiere' => 'Informatique',
+            'niveau' => 'Master 1',
+            'numeroCarte' => 'CROUS123456',
+        ]);
+    }
 }
