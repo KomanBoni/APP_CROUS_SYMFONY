@@ -4,34 +4,72 @@ Base URL : `http://localhost:8000/api`
 
 Toutes les réponses sont au format JSON avec `success`, `data` et `message`.
 
-## Routes disponibles
+## Routes CRUD
 
-### Menu
-- `GET /api/menu` - Liste des plats
-- `GET /api/menu/{id}` - Détails d'un plat
-- `GET /api/menu/categorie/{categorie}` - Plats par catégorie
-- `GET /api/categories` - Liste des catégories
+### Plats (`/api/plats`)
 
-### Panier
-- `GET /api/panier` - Récupérer le panier
-- `POST /api/panier` - Ajouter un produit (body: `{"produit_id": 1, "quantite": 2}`)
-- `DELETE /api/panier/{id}` - Supprimer un produit
-- `DELETE /api/panier` - Vider le panier
+- `GET /api/plats` - Liste tous les plats
+- `GET /api/plats/{id}` - Détails d'un plat
+- `POST /api/plats` - Créer un plat
+  ```json
+  {
+    "nom": "Pizza Margherita",
+    "description": "Tomate, mozzarella, basilic",
+    "prix": "8.90",
+    "categorie": "Pizza",
+    "image": "https://example.com/image.jpg"
+  }
+  ```
+- `PUT /api/plats/{id}` - Modifier un plat
+- `DELETE /api/plats/{id}` - Supprimer un plat
+- `GET /api/plats/categorie/{categorie}` - Plats par catégorie
 
-### Étudiant
-- `GET /api/etudiant` - Informations de l'étudiant
+### Étudiants (`/api/etudiants`)
+
+- `GET /api/etudiants` - Liste tous les étudiants
+- `GET /api/etudiants/{id}` - Détails d'un étudiant
+- `POST /api/etudiants` - Créer un étudiant
+  ```json
+  {
+    "nom": "Doe",
+    "prenom": "Jane",
+    "email": "jane.doe@example.com",
+    "filiere": "Informatique",
+    "niveau": "Master 1",
+    "numeroCarte": "CROUS123456",
+    "solde": "45.50"
+  }
+  ```
+- `PUT /api/etudiants/{id}` - Modifier un étudiant
+- `DELETE /api/etudiants/{id}` - Supprimer un étudiant
+
+### Lignes de Panier (`/api/lignes-panier`)
+
+- `GET /api/lignes-panier` - Liste toutes les lignes de panier
+- `GET /api/lignes-panier/{id}` - Détails d'une ligne de panier
+- `POST /api/lignes-panier` - Créer une ligne de panier
+  ```json
+  {
+    "etudiant_id": 1,
+    "plat_id": 1,
+    "quantite": 2
+  }
+  ```
+- `PUT /api/lignes-panier/{id}` - Modifier une ligne de panier
+- `DELETE /api/lignes-panier/{id}` - Supprimer une ligne de panier
+- `GET /api/lignes-panier/etudiant/{etudiantId}` - Panier d'un étudiant
 
 ## Exemples
 
 ```bash
-# Menu
-curl http://localhost:8000/api/menu
+# Liste des plats
+curl http://localhost:8000/api/plats
 
-# Ajouter au panier
-curl -X POST http://localhost:8000/api/panier \
+# Créer un plat
+curl -X POST http://localhost:8000/api/plats \
   -H "Content-Type: application/json" \
-  -d '{"produit_id": 1, "quantite": 2}'
+  -d '{"nom":"Burger","prix":"9.50","categorie":"Burger"}'
 
-# Panier
-curl http://localhost:8000/api/panier
+# Panier d'un étudiant
+curl http://localhost:8000/api/lignes-panier/etudiant/1
 ```
