@@ -15,10 +15,17 @@
             <li><a href="{{ path('app_etudiant') }}">Etudiant</a></li>
             <li><a href="{{ path('app_panier') }}">Panier</a></li>
             {% if app.user %}
-                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
                 {% if 'ROLE_ADMIN' in app.user.roles %}
                     <li><a href="{{ path('app_plat_index') }}">Admin</a></li>
                 {% endif %}
+                <li>
+                    <form method="post" action="{{ path('app_logout') }}" style="display: inline; margin: 0;">
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('logout') }}">
+                        <button type="submit" style="background: rgba(255,255,255,0.2); border: 2px solid white; color: white; font-weight: 500; cursor: pointer; padding: 0.4rem 1rem; border-radius: 20px; transition: all 0.3s; font-size: 0.9rem;" onmouseover="this.style.background='white'; this.style.color='#667eea';" onmouseout="this.style.background='rgba(255,255,255,0.2)'; this.style.color='white';">
+                            🚪 Déconnexion
+                        </button>
+                    </form>
+                </li>
             {% else %}
                 <li><a href="{{ path('app_login') }}">Connexion</a></li>
                 <li><a href="{{ path('app_register') }}">Inscription</a></li>

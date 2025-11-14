@@ -21,7 +21,7 @@ class RegistrationController extends AbstractController
         EntityManagerInterface $entityManager,
         KomanRepository $komanRepository
     ): Response {
-        // Si l'utilisateur est déjà connecté, rediriger
+        // Si l'utilisateur est déjà connecté, rediriger (mais permettre l'accès si pas connecté)
         if ($this->getUser()) {
             return $this->redirectToRoute('app_home');
         }

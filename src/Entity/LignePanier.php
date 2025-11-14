@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\LignePanierRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LignePanierRepository::class)]
 class LignePanier
@@ -15,13 +16,18 @@ class LignePanier
 
     #[ORM\ManyToOne(targetEntity: Etudiant::class)]
     #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotNull(message: 'L\'étudiant est obligatoire.')]
     private ?Etudiant $etudiant = null;
 
     #[ORM\ManyToOne(targetEntity: Plat::class)]
     #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotNull(message: 'Le plat est obligatoire.')]
     private ?Plat $plat = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message: 'La quantité est obligatoire.')]
+    #[Assert\Positive(message: 'La quantité doit être positive.')]
+    #[Assert\GreaterThan(value: 0, message: 'La quantité doit être supérieure à 0.')]
     private ?int $quantite = null;
 
     #[ORM\Column(type: 'datetime_immutable')]

@@ -20,7 +20,7 @@ final class HomeController extends AbstractController
     #[Route('/etudiant', name: 'app_etudiant')]
     public function etudiant(): Response
     {
-        return $this->render('etudiant/index.html.twig', [
+        return $this->render('etudiant/public.html.twig', [
             'nom' => 'Doe',
             'prenom' => 'Jane',
             'email' => 'jane.doe@example.com',
